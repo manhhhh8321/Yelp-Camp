@@ -30,6 +30,10 @@ app.get('/', (req, res) => {
     res.render('home')
 });
 
+app.get('/campgrounds', async (req, res) => {
+    const camps = await Campground.find({});
+    res.render('campgrounds/index', { camps })
+})
 
 app.listen(3000, () => {
     console.log('Serving on port 3000')
